@@ -89,12 +89,14 @@ void JoggerPluginAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+	transportSource.prepareToPlay(samplesPerBlock, sampleRate);
 }
 
 void JoggerPluginAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+	transportSource.releaseResources();
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -121,16 +123,6 @@ bool JoggerPluginAudioProcessor::isBusesLayoutSupported (const BusesLayout& layo
 }
 #endif
 
-void JoggerPluginAudioProcessor::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
-{
-	if (readerSource == nullptr)
-	{
-		bufferToFill.clearActiveBufferRegion();
-		return;
-	}
-
-	transportSource.getNextAudioBlock(bufferToFill);
-}
 
 void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
@@ -146,6 +138,11 @@ void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBu
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
+	AudioSourceChannelInfo bufferToFill;
+	bufferToFill.buffer = &buffer;
+	bufferToFill.startSample = 0;
+	bufferToFill.numSamples = buffer.getNumSamples();
+	transportSource.getNextAudioBlock(bufferToFill);
 
     // Process dat audio boii
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
