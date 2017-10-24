@@ -47,8 +47,6 @@ private:
 	TextButton stopButton;
 
 	AudioFormatManager formatManager;
-	ScopedPointer<AudioFormatReaderSource> readerSource;
-	AudioTransportSource transportSource;
 	TransportState state;
 
 	void buttonClicked(Button *button) override;

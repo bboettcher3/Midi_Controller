@@ -121,6 +121,17 @@ bool JoggerPluginAudioProcessor::isBusesLayoutSupported (const BusesLayout& layo
 }
 #endif
 
+void JoggerPluginAudioProcessor::getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill)
+{
+	if (readerSource == nullptr)
+	{
+		bufferToFill.clearActiveBufferRegion();
+		return;
+	}
+
+	transportSource.getNextAudioBlock(bufferToFill);
+}
+
 void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
     const int totalNumInputChannels  = getTotalNumInputChannels();
@@ -135,12 +146,13 @@ void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBu
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
+
+    // Process dat audio boii
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         float* channelData = buffer.getWritePointer (channel);
-
+		//transportSource.getNextAudioBlock(buffer);
+		
         // ..do something to the data...
     }
 }

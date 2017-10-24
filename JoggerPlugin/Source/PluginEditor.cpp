@@ -36,7 +36,7 @@ JoggerPluginAudioProcessorEditor::JoggerPluginAudioProcessorEditor (JoggerPlugin
     setSize (400, 300);
 
 	formatManager.registerBasicFormats();       // [1]
-	transportSource.addChangeListener(this);
+	processor.transportSource.addChangeListener(this);
 
 }
 
@@ -55,12 +55,12 @@ void JoggerPluginAudioProcessorEditor::changeState(TransportState newState)
 		case Stopped:                           // [3]
 			stopButton.setEnabled(false);
 			playButton.setEnabled(true);
-			transportSource.setPosition(0.0);
+			processor.transportSource.setPosition(0.0);
 			break;
 
 		case Starting:                          // [4]
 			playButton.setEnabled(false);
-			transportSource.start();
+			processor.transportSource.start();
 			break;
 
 		case Playing:                           // [5]
@@ -68,7 +68,7 @@ void JoggerPluginAudioProcessorEditor::changeState(TransportState newState)
 			break;
 
 		case Stopping:                          // [6]
-			transportSource.stop();
+			processor.transportSource.stop();
 			break;
 		}
 	}
@@ -76,9 +76,9 @@ void JoggerPluginAudioProcessorEditor::changeState(TransportState newState)
 
 void JoggerPluginAudioProcessorEditor::changeListenerCallback(ChangeBroadcaster* source)
 {
-	if (source == &transportSource)
+	if (source == &processor.transportSource)
 	{
-		if (transportSource.isPlaying()) {
+		if (processor.transportSource.isPlaying()) {
 			changeState(Playing);
 		} else {
 			changeState(Stopped);
@@ -108,9 +108,9 @@ void JoggerPluginAudioProcessorEditor::openButtonClicked()
 		if (reader != nullptr)
 		{
 			ScopedPointer<AudioFormatReaderSource> newSource = new AudioFormatReaderSource(reader, true); // [11]
-			transportSource.setSource(newSource, 0, nullptr, reader->sampleRate);                         // [12]
+			processor.transportSource.setSource(newSource, 0, nullptr, reader->sampleRate);                         // [12]
 			playButton.setEnabled(true);                                                                  // [13]
-			readerSource = newSource.release();                                                            // [14]
+			processor.readerSource = newSource.release();                                                            // [14]
 		}
 	}
 }
