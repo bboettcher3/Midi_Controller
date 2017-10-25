@@ -44,30 +44,30 @@ JoggerPluginAudioProcessorEditor::~JoggerPluginAudioProcessorEditor()
 {
 }
 
-void JoggerPluginAudioProcessorEditor::changeState(TransportState newState)
+void JoggerPluginAudioProcessorEditor::changeState(JoggerPluginAudioProcessor::TransportState newState)
 {
-	if (state != newState)
+	if (processor.state != newState)
 	{
-		state = newState;
+		processor.state = newState;
 
-		switch (state)
+		switch (processor.state)
 		{
-		case Stopped:                           // [3]
+		case JoggerPluginAudioProcessor::Stopped:                           // [3]
 			stopButton.setEnabled(false);
-			playButton.setEnabled(true);
+			//playButton.setEnabled(true);
 			processor.transportSource.setPosition(0.0);
 			break;
 
-		case Starting:                          // [4]
+		case JoggerPluginAudioProcessor::Starting:                          // [4]
 			playButton.setEnabled(false);
 			processor.transportSource.start();
 			break;
 
-		case Playing:                           // [5]
+		case JoggerPluginAudioProcessor::Playing:                           // [5]
 			stopButton.setEnabled(true);
 			break;
 
-		case Stopping:                          // [6]
+		case JoggerPluginAudioProcessor::Stopping:                          // [6]
 			processor.transportSource.stop();
 			break;
 		}
@@ -79,9 +79,9 @@ void JoggerPluginAudioProcessorEditor::changeListenerCallback(ChangeBroadcaster*
 	if (source == &processor.transportSource)
 	{
 		if (processor.transportSource.isPlaying()) {
-			changeState(Playing);
+			changeState(JoggerPluginAudioProcessor::Playing);
 		} else {
-			changeState(Stopped);
+			changeState(JoggerPluginAudioProcessor::Stopped);
 		}
 			
 	}
@@ -117,12 +117,12 @@ void JoggerPluginAudioProcessorEditor::openButtonClicked()
 
 void JoggerPluginAudioProcessorEditor::playButtonClicked()
 {
-	changeState(Starting);
+	changeState(JoggerPluginAudioProcessor::Starting);
 }
 
 void JoggerPluginAudioProcessorEditor::stopButtonClicked()
 {
-	changeState(Stopping);
+	changeState(JoggerPluginAudioProcessor::Stopping);
 }
 
 //==============================================================================

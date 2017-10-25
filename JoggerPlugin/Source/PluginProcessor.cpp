@@ -138,6 +138,19 @@ void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBu
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
+	//process MIDI
+	MidiMessage m;
+	int time;
+	for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);) {
+		if (m.isController()) {
+			if ((m.getControllerNumber() == 16) && (m.getControllerValue() == 127) && !transportSource.isPlaying()) {
+				transportSource.start();
+			}
+		}
+
+	}
+
+
 	AudioSourceChannelInfo bufferToFill;
 	bufferToFill.buffer = &buffer;
 	bufferToFill.startSample = 0;
@@ -153,6 +166,7 @@ void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBu
         // ..do something to the data...
     }
 }
+
 
 //==============================================================================
 bool JoggerPluginAudioProcessor::hasEditor() const

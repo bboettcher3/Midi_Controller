@@ -57,8 +57,18 @@ public:
 
 	ScopedPointer<AudioFormatReaderSource> readerSource;
 	AudioTransportSource transportSource;
+	enum TransportState
+	{
+		Stopped,
+		Starting,
+		Playing,
+		Stopping
+	};
+	//void changeState(TransportState newState);
+	TransportState state;
 
 private:
+
     //==============================================================================
 	//void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill) override;
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JoggerPluginAudioProcessor)

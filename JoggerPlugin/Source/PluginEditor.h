@@ -31,13 +31,13 @@ public:
 
 private:
 
-	enum TransportState
+	/*enum TransportState
 	{
 		Stopped,
 		Starting,
 		Playing,
 		Stopping
-	};
+	}; */
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
 
@@ -47,11 +47,10 @@ private:
 	TextButton stopButton;
 
 	AudioFormatManager formatManager;
-	TransportState state;
 
 	void buttonClicked(Button *button) override;
 	void changeListenerCallback(ChangeBroadcaster* source) override;
-	void changeState(TransportState newState);
+	void changeState(JoggerPluginAudioProcessor::TransportState newState);
 	void openButtonClicked();
 	void playButtonClicked();
 	void stopButtonClicked();
