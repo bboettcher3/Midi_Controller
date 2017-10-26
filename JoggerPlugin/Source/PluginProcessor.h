@@ -66,6 +66,7 @@ public:
 	};
 	//void changeState(TransportState newState);
 	TransportState state;
+	int contNum;
 
 private:
 

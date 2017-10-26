@@ -19,7 +19,8 @@
 */
 class JoggerPluginAudioProcessorEditor  :   public AudioProcessorEditor,
 											public Button::Listener,
-											public ChangeListener
+											public ChangeListener,
+											private Timer
 {
 public:
     JoggerPluginAudioProcessorEditor (JoggerPluginAudioProcessor&);
@@ -28,9 +29,9 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
-
+	void timerCallback() override;
 private:
-
+	void updateGUI();
 	/*enum TransportState
 	{
 		Stopped,
@@ -54,6 +55,8 @@ private:
 	void openButtonClicked();
 	void playButtonClicked();
 	void stopButtonClicked();
+
+	Label debug;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JoggerPluginAudioProcessorEditor)

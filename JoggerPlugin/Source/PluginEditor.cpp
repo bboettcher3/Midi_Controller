@@ -38,6 +38,11 @@ JoggerPluginAudioProcessorEditor::JoggerPluginAudioProcessorEditor (JoggerPlugin
 	formatManager.registerBasicFormats();       // [1]
 	processor.transportSource.addChangeListener(this);
 
+	addAndMakeVisible(debug);
+	debug.setColour(Label::textColourId, Colours::white);
+
+	//timer for updating GUI
+	startTimerHz(30);
 }
 
 JoggerPluginAudioProcessorEditor::~JoggerPluginAudioProcessorEditor()
@@ -92,6 +97,7 @@ void JoggerPluginAudioProcessorEditor::buttonClicked(Button* button)
 	if (button == &openButton)  openButtonClicked();
 	if (button == &playButton)  playButtonClicked();
 	if (button == &stopButton)  stopButtonClicked();
+
 }
 
 void JoggerPluginAudioProcessorEditor::openButtonClicked()
@@ -109,7 +115,7 @@ void JoggerPluginAudioProcessorEditor::openButtonClicked()
 		{
 			ScopedPointer<AudioFormatReaderSource> newSource = new AudioFormatReaderSource(reader, true); // [11]
 			processor.transportSource.setSource(newSource, 0, nullptr, reader->sampleRate);                         // [12]
-			playButton.setEnabled(true);                                                                  // [13]
+			//playButton.setEnabled(true);                                                                  // [13]
 			processor.readerSource = newSource.release();                                                            // [14]
 		}
 	}
@@ -133,7 +139,7 @@ void JoggerPluginAudioProcessorEditor::paint (Graphics& g)
 
     g.setColour (Colours::white);
     g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    //g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
 }
 
 void JoggerPluginAudioProcessorEditor::resized()
@@ -143,4 +149,21 @@ void JoggerPluginAudioProcessorEditor::resized()
 	openButton.setBounds(10, 10, getWidth() - 20, 20);
 	playButton.setBounds(10, 40, getWidth() - 20, 20);
 	stopButton.setBounds(10, 70, getWidth() - 20, 20);
+	debug.setBounds(100, 100, 200, 200);
+}
+
+void JoggerPluginAudioProcessorEditor::updateGUI() {
+	//int numFree = 0;
+	//for (int i = 0; i < 10; i++) {
+	//	if (processor.voices[i].isFree) {
+	//		numFree++;
+	//	}
+	//}
+	debug.setText((String)processor.contNum, dontSendNotification);
+}
+
+//==============================================================================
+void JoggerPluginAudioProcessorEditor::timerCallback()
+{
+	updateGUI();
 }
