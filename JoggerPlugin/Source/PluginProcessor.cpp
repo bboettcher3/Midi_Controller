@@ -25,7 +25,7 @@ JoggerPluginAudioProcessor::JoggerPluginAudioProcessor()
                        )
 #endif
 {
-	//contNum = (acceptsMidi()) ? 1 : 0;
+	contNum = (acceptsMidi()) ? 1 : 0;
 }
 
 JoggerPluginAudioProcessor::~JoggerPluginAudioProcessor()
@@ -144,13 +144,13 @@ void JoggerPluginAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBu
 	int time;
 	for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);) {
 		if (m.isController()) {
-			contNum = m.getControllerNumber();
+			//contNum = m.getControllerNumber();
 			if ((m.getControllerNumber() == 16) && !transportSource.isPlaying()) {
 				transportSource.start();
 			}
 		} 
 		else {
-			contNum = m.getChannel();
+			//contNum = m.getChannel();
 		} 
 		//if (m.isNoteOn() && m.getNoteNumber() == 16 && !transportSource.isPlaying()) {
 		//	transportSource.start();
