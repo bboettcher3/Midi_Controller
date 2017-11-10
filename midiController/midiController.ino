@@ -8,6 +8,7 @@
 #define BUTTON_2 1 //digital
 #define BUTTON_3 2 //digital
 #define BUTTON_4 3 //digital
+#define ENCODER_BUTTON 6 //digital
 #define FADER A0 //analog
 #define ENCODERPIN_1 4 //digital
 #define ENCODERPIN_2 5 //digital
@@ -21,6 +22,7 @@ Bounce button1 = Bounce(BUTTON_1, 5);
 Bounce button2 = Bounce(BUTTON_2, 5);
 Bounce button3 = Bounce(BUTTON_3, 5);
 Bounce button4 = Bounce(BUTTON_4, 5);
+Bounce enc_button = Bounce(ENCODER_BUTTON, 5);
 //jog wheel
 Encoder encoder(ENCODERPIN_1, ENCODERPIN_2);
 
@@ -30,6 +32,7 @@ void setup() {
   pinMode(BUTTON_2, INPUT_PULLUP);
   pinMode(BUTTON_3, INPUT_PULLUP);
   pinMode(BUTTON_4, INPUT_PULLUP);
+  pinMode(ENCODER_BUTTON, INPUT_PULLUP);
 }
 
 void loop() {
@@ -37,6 +40,7 @@ void loop() {
     button2.update();
     button3.update();
     button4.update();
+    enc_button.update();
   encoderVal = encoder.read();
   faderVal = analogRead(FADER) / 8; //divide by 8 to put in 0-127 range
   //Serial.println(analogRead(0));
@@ -60,6 +64,11 @@ void loop() {
     //sendControlChange(control, value, channel)
     usbMIDI.sendControlChange(19, 10, CHANNEL);
     Serial.println("pressed 4");
+  }
+  if (enc_button.fallingEdge()) {
+    //sendControlChange(control, value, channel)
+    //usbMIDI.sendControlChange(19, 10, CHANNEL);
+    Serial.println("pressed encoder");
   }
   if (faderVal != lastFaderVal) {
     usbMIDI.sendControlChange(20, faderVal, CHANNEL);
