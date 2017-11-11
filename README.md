@@ -13,6 +13,13 @@ Using a Teensy 3.2 board as the microcontroller, the controller features 4 [push
 , a [fader](https://www.digikey.com/products/en?keywords=PTA3043-2010CIB103-ND) and a [jog wheel](https://www.digikey.com/products/en?keywords=EM14A0D-C24-L064S-ND). 
 All code for the controller was written in C using the Arduino IDE.
 
+#### Control Changes
+
+* CC1-CC4: push buttons
+* CC5: Rotary encoder button
+* CC10: Fader position (sent on change)
+* CC20: Encoder value (sent on change)
+
 ## [The Plugin](./JoggerPlugin) (**C++**)
 
 The VST plugin uses JUCE for the UI and audio pipeline, and Maximilian for DSP. The plugin loads a piece of audio and allows scrubbing
