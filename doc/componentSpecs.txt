@@ -1,0 +1,22 @@
+Slide Pot:
+30mm slide length
+9 mm width
+45 mm length
+41 mm from hole to hole (m2 by .4mm)
+
+Button:
+4 mm between pins
+7 mm height first round tier
+5.8 mm height second squared off tier
+3.5 mm between bottom of button and bottom of pins
+11.4 mm diameter squared edge and round edge
+12 mm diameter round edge second tier
+9 mm diameter first round tier
+
+Encoder:
+14.25 by 14.76 mm base rectangle
+10.03 mm base height
+4.76 mm round to squared off diameter
+6.35 mm diameter shaft
+19.05 mm shaft length
+7.94 mm flat length

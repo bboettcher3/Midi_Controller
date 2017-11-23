@@ -9,7 +9,8 @@
               pluginCode="Xce9" pluginChannelConfigs="" pluginIsSynth="1" pluginWantsMidiIn="1"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="JoggerPluginAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.JoggerPlugin"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.0.2">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="5.1.0"
+              cppLanguageStandard="11">
   <MAINGROUP id="gHxnKs" name="JoggerPlugin">
     <GROUP id="{C97B6AEF-464E-1C6F-11C5-4A436FEC821F}" name="Source">
       <FILE id="iNDUQY" name="PluginProcessor.cpp" compile="1" resource="0"
