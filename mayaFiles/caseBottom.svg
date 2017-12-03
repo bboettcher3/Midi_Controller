@@ -10,14 +10,14 @@
  </g>
  <g>
   <title>Layer 1</title>
-  <rect fill="#fff" stroke="#000" stroke-width="1.5" width="170" height="180" id="svg_1"/>
-  <ellipse fill="#fff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="40" cy="161" id="svg_2" rx="5" ry="5" stroke="#000"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="151" cy="40" id="svg_3" rx="5" ry="5"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="19.05" cy="40" id="svg_4" rx="5" ry="5"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="40" cy="19" id="svg_5" rx="5" ry="5"/>
-  <ellipse fill="#fff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="19.05" cy="140" id="svg_6" rx="5" ry="5" stroke="#000"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="130" cy="19" id="svg_7" rx="5" ry="5"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="151" cy="140" id="svg_8" rx="5" ry="5"/>
-  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="130" cy="161" id="svg_9" rx="5" ry="5"/>
+  <rect fill="#fff" stroke="#f00" stroke-width="1.5" width="170" height="180" id="svg_1"/>
+  <ellipse fill="#fff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="40" cy="161" id="svg_2" rx="5" ry="5" stroke="#f00"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="151" cy="40" id="svg_3" rx="5" ry="5"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="19.05" cy="40" id="svg_4" rx="5" ry="5"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="40" cy="19" id="svg_5" rx="5" ry="5"/>
+  <ellipse fill="#fff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="19.05" cy="140" id="svg_6" rx="5" ry="5" stroke="#f00"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="130" cy="19" id="svg_7" rx="5" ry="5"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="151" cy="140" id="svg_8" rx="5" ry="5"/>
+  <ellipse fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="130" cy="161" id="svg_9" rx="5" ry="5"/>
  </g>
 </svg>

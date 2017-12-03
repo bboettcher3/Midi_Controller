@@ -7,12 +7,12 @@
  </g>
  <g>
   <title>Layer 1</title>
-  <rect id="svg_1" height="70" width="180" y="0" x="0" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
-  <ellipse ry="5" rx="5" id="svg_2" cy="51" cx="140" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
-  <ellipse ry="5" rx="5" id="svg_3" cy="20" cx="163" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
-  <ellipse ry="5" rx="5" id="svg_4" cy="51" cx="40" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
-  <ellipse ry="5" rx="5" id="svg_5" cy="20" cx="19" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
-  <rect fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="109" y="10" width="6" height="40" id="svg_7"/>
-  <rect fill="#fff" stroke="#000" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="67" y="10" width="6" height="40" id="svg_8"/>
+  <rect id="svg_1" height="70" width="180" y="0" x="0" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#f00" fill="#fff"/>
+  <ellipse ry="5" rx="5" id="svg_2" cy="51" cx="140" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#f00" fill="#fff"/>
+  <ellipse ry="5" rx="5" id="svg_3" cy="20" cx="163" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#f00" fill="#fff"/>
+  <ellipse ry="5" rx="5" id="svg_4" cy="51" cx="40" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#f00" fill="#fff"/>
+  <ellipse ry="5" rx="5" id="svg_5" cy="20" cx="19" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#f00" fill="#fff"/>
+  <rect fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="109" y="10" width="6" height="40" id="svg_7"/>
+  <rect fill="#fff" stroke="#f00" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" x="67" y="10" width="6" height="40" id="svg_8"/>
  </g>
 </svg>
